@@ -165,3 +165,16 @@ nehir1234
 ```
 sensor/datos
 ```
+
+---
+
+## Autor
+
+**NEHIR RODRIGUEZ TAPIAS **  
+juan.perez@example.com  
+[Universidad de medellin n](https://udemedellin.edu.co/) | [GitHub]([(https://github.com/NEROrt3317)])
+
+> "La tecnología es solo una herramienta. La gente usa las herramientas para mejorar sus vidas." - Tom Clancy
+
+---
+
