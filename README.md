@@ -128,3 +128,40 @@ mosquitto_pub -h <IP_del_broker> -t "sensores/temperatura" -m '{"value": 25.5}' 
 ```
 Verificar la visualización en Grafana:
 Observa en el panel de Grafana cómo los datos publicados en MQTT se reflejan en tiempo real. Puedes ajustar el intervalo de actualización en el panel para ver los cambios en el gráfico a medida que envías nuevos datos.
+
+# Configuracion personal omitir 
+
+## configuracion personal de validaciones 
+- configuro contraseña
+```
+sudo mosquitto_passwd -c /etc/mosquitto/passwd nehir
+```
+pw nehir1234
+- me subscribo
+```
+mosquitto_pub -h localhost -t test -m "Mensaje de prueba" -u tu_usuario -P tu_contraseña
+```
+- abro el topico
+```
+mosquitto_sub -h localhost -t "sensores/temperatura" -u nehir -P nehir1234
+```
+## configuracion personal de grafana 
+### Conection mqtt
+- uri
+```
+tcp://192.168.76.166:1883
+```
+- username
+```
+nehir
+```
+
+- password
+```
+nehir1234
+```
+- save & test
+- topico
+```
+sensor/datos
+```
