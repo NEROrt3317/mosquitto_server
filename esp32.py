@@ -5,14 +5,14 @@ from umqtt.simple import MQTTClient
 import ujson
 
 # Configuración del Wi-Fi
-ssid = 'nehir'
+ssid = 'mosquito'
 password = 'abcd1234'
 
 # Configuración de MQTT
-MQTT_BROKER = '192.168.76.145'  # Cambia esto por la IP de tu servidor
+MQTT_BROKER = '192.168.76.166'  # Cambia esto por la IP de tu servidor
 MQTT_TOPIC = 'sensor/datos'
-MQTT_USER = 'tu_usuario'        # Cambia esto por tu usuario de MQTT
-MQTT_PASSWORD = 'tu_contraseña'  # Cambia esto por tu contraseña de MQTT
+MQTT_USER = 'nehir'        # Cambia esto por tu usuario de MQTT
+MQTT_PASSWORD = 'nehir1234'  # Cambia esto por tu contraseña de MQTT
 
 # Conectar a Wi-Fi
 nic = network.WLAN(network.STA_IF)
@@ -38,14 +38,17 @@ def publish_data():
 
     while True:
         # Generar datos aleatorios
-        humedad = random.uniform(20, 80)
-        inclinacion = random.uniform(-20, 20)
-        vibracion = random.uniform(0, 0.5)
+        humedad = random.uniform(10, 30)
+        inclinacion = random.uniform(10, 30)
+        vibracion = random.uniform(10, 30)
+        timestamp = int(time.time())
         
         data = {
+            "id_equipo":"esp32",
             "humedad": humedad,
             "inclinacion": inclinacion,
-            "vibracion": vibracion
+            "vibracion": vibracion,
+            "timestamo" : timestamp
         }
         
         # Publicar datos
@@ -60,3 +63,4 @@ def publish_data():
 
 # Iniciar la publicación
 publish_data()
+
